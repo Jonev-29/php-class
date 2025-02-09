@@ -15,16 +15,15 @@
     // create full name
     $name = $first_name . ' ' . $last_name;
 
-    // adjust for html tags
-    $html_post = htmlentities($_POST['posting']);
-    $strip_post = strip_tags($_POST['posting']);
-
     // print message
     print "<div>Thank you, $name, for your posting:
-        <p>Original: $posting</p>
-        <p>Entity: $html_post</p>
-        <p>Stripped: $strip_post</p>
+        <p>$posting</p>
         </div>";
+
+        // link to another page
+        $name = urlencode($name);
+        $email = urlencode($_POST['email']);
+        print "<p>Click <a href=\"thanks.php?name=$name&email=$email\">here</a> to continue.</p>";
 
         ?>
         </body>
