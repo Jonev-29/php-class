@@ -15,9 +15,15 @@
     // create full name
     $name = $first_name . ' ' . $last_name;
 
+    // get word count
+    $words = str_word_count($posting);
+
+    $posting = substr($posting, 0, 50);
+
     // print message
     print "<div>Thank you, $name, for your posting:
-        <p>$posting</p>
+        <p>$posting...</p>
+        <p>($words words)</p>
         </div>";
 
         // link to another page
